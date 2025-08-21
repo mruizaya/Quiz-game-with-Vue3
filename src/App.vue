@@ -1,14 +1,18 @@
 <template>
   <div>
-    <h1 v-html="this.question">
-    </h1>
-    <input type="radio" name="options" value="True">
-    <label>True</label><br>
+    <template v-if="this.question">
+      <h1 v-html="this.question">
+      </h1>
+      <template v-for="(answer, index) in this.answers" :key="index"> 
+        <input
+          type="radio"
+          name="options" 
+          value="answer">
 
-    <input type="radio" name="options" value="False">
-    <label>False</label><br>
-
-    <button class="send" type="button">Send</button>
+        <label v-html="answer"></label><br>
+      </template>
+      <button class="send" type="button">Send</button>
+    </template>
   </div>
 </template>
 
@@ -20,7 +24,14 @@ export default {
     return {
       question: undefined,
       incorrectAnswers: undefined,
-      correctAnswer: undefined
+      correctAnswer: undefined,
+    }
+  },
+  computed: {
+    answers() {
+      var answers = [...this.incorrectAnswers];//to copy an instance of the array [...this.array]
+      answers.splice(Math.round(Math.random() * answers.length), 0, this.correctAnswer);
+      return answers;
     }
   },
   created() {
