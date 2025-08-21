@@ -20,6 +20,7 @@ export default {
 }
 
 //https://opentdb.com/api.php?amount=1&category=18&difficulty=hard
+
 </script>
 
 <style lang="scss">
