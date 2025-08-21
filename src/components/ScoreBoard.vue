@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        props: ['winCount', 'loseCount']
+        props: ['winCount', 'loseCount'] //props are data we can pass to main app
     }
 </script>
 
