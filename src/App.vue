@@ -88,7 +88,7 @@ export default {
         this.question = response.data.results[0].question;
         this.incorrectAnswers = response.data.results[0].incorrect_answers;
         this.correctAnswer = response.data.results[0].correct_answer;
-      })
+      }) //This is how you use data from a DB, first we connect and then the response we get we assign to data() var
   }
 }
 
